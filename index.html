@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KASANE｜かさね - 東京・蔵前のアパレルブランド</title>
+<meta name="description" content="色は、端にだけ置いていく。東京・蔵前のアパレルブランド KASANE。襟の裏、袖口の内側、裾のステッチ。着ている本人にしか見えない場所にだけ、洗朱を残しています。">
+<meta name="theme-color" content="#14110F">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="KASANE｜かさね">
+<meta property="og:description" content="色は、端にだけ置いていく。東京・蔵前のアパレルブランド。">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500&family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Zen+Kaku+Gothic+New:wght@400;500&family=Zen+Old+Mincho:wght@400;600;900&display=swap">
+<link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+<!-- 幕。読み込み時に一度だけ引き上がる -->
+<div class="veil" id="veil">
+  <div class="veil__inner">
+    <span class="veil__mark" aria-hidden="true"><span>K</span><span>A</span><span>S</span><span>A</span><span>N</span><span>E</span></span>
+    <span class="veil__kana" aria-hidden="true">かさね</span>
+  </div>
+  <p class="veil__sr">読み込み中</p>
+</div>
+
+<a class="skip" href="#main">本文へ移動</a>
+
+<!-- 布。全画面固定の WebGL -->
+<canvas class="cloth" id="cloth" aria-hidden="true"></canvas>
+
+<!-- 固定ヘッダ -->
+<header class="head" id="head">
+  <a class="head__logo" href="#top" aria-label="KASANE ホームへ">
+    <svg viewBox="0 0 32 32" width="20" height="20" aria-hidden="true" focusable="false">
+      <rect x="6" y="9" width="16" height="16" fill="currentColor"/>
+      <rect x="11.75" y="6.75" width="14.5" height="14.5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M11 6h16v3H11z" fill="#C9442B"/>
+    </svg>
+    <span>KASANE</span>
+  </a>
+  <div class="head__right">
+    <a class="head__contact" href="#contact">CONTACT</a>
+    <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="nav">
+      <span class="burger__lines" aria-hidden="true"><i></i><i></i></span>
+      <span class="burger__txt">MENU</span>
+    </button>
+  </div>
+</header>
+
+<!-- ナビ -->
+<nav class="nav" id="nav" hidden aria-label="メインメニュー">
+  <ol class="nav__list">
+    <li><a href="#philosophy"><em>01</em><b>PHILOSOPHY</b><span>考え方</span></a></li>
+    <li><a href="#collection"><em>02</em><b>COLLECTION</b><span>2026 A/W</span></a></li>
+    <li><a href="#fabric"><em>03</em><b>FABRIC</b><span>生地のこと</span></a></li>
+    <li><a href="#greetings"><em>04</em><b>GREETINGS</b><span>代表より</span></a></li>
+    <li><a href="#contact"><em>05</em><b>CONTACT</b><span>お問い合わせ</span></a></li>
+  </ol>
+  <p class="nav__foot">東京都台東区蔵前 2-14-6　12:00–19:00　水曜定休</p>
+</nav>
+
+<!-- 左のレール -->
+<div class="rail" aria-hidden="true">
+  <span class="rail__txt">SCROLL DOWN</span>
+  <span class="rail__gauge"><i id="gauge"></i></span>
+</div>
+
+<!-- 右のドット -->
+<ul class="dots" id="dots" aria-hidden="true">
+  <li data-for="hero"></li><li data-for="philosophy"></li><li data-for="collection"></li>
+  <li data-for="fabric"></li><li data-for="greetings"></li><li data-for="contact"></li>
+</ul>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <span id="top"></span>
+    <h1 class="hero__h">
+      <span class="ln"><span class="w">Color</span> <span class="w">at</span></span>
+      <span class="ln"><span class="w">the</span> <span class="w">Edge</span></span>
+    </h1>
+    <p class="hero__sub">東京・蔵前のアパレルブランド　KASANE ／ かさね</p>
+    <p class="hero__note" aria-hidden="true">EST. 2016 — KURAMAE, TOKYO</p>
+  </section>
+
+  <!-- PHILOSOPHY : 洗朱のベタ面。サイト中ただ一度きり -->
+  <section class="phil" id="philosophy">
+    <p class="mark"><em>01</em> PHILOSOPHY <span>考え方</span></p>
+    <div class="phil__grid">
+      <h2 class="phil__h" data-stagger>
+        <span>色は、</span>
+        <span>端にだけ</span>
+        <span>置いていく。</span>
+      </h2>
+      <div class="phil__body">
+        <p data-reveal>派手にやるつもりはない。でも、地味にやるつもりもない。</p>
+        <p data-reveal>服を全部おなじ色にすると、形がよく見えてくる。肩の落ち方、袖の太さ、裾の重さ。色を引くと、そういうものが前に出る。</p>
+        <p data-reveal>だから私たちは、色をひとつだけ残しています。襟の裏、袖口の内側、裾のステッチ。着ている本人にしか見えない場所に。</p>
+        <p data-reveal>平安の装束に「襲の色目（かさねのいろめ）」という言い方があります。重ねた衣の、端にだけ色が覗く。千年前の人も、たぶん同じことを考えていた。</p>
+        <p class="phil__sig" data-reveal>—— その一色を、私たちは洗朱と呼んでいます。</p>
+      </div>
+    </div>
+    <div class="phil__swatch" aria-hidden="true">
+      <i></i><i></i><i></i><i></i>
+      <span>ARAI-SHU #C9442B</span>
+    </div>
+  </section>
+
+  <!-- 円マスク遷移 -->
+  <div class="wipe" id="wipe" aria-hidden="true">
+    <div class="wipe__stick">
+      <div class="wipe__circle"><span class="wipe__label">AUTUMN WINTER 2026</span></div>
+    </div>
+  </div>
+
+  <!-- COLLECTION : 横スクロール -->
+  <section class="coll" id="collection">
+    <div class="coll__stick">
+      <p class="mark mark--dark"><em>02</em> COLLECTION <span>2026 A/W</span></p>
+      <div class="coll__track" id="track">
+        <article class="look">
+          <picture><source srcset="assets/look-01.webp" type="image/webp"><img src="assets/look-01.jpg" alt="メルトンのバルカラーコートを着た男性。肩が落ちた、身幅のゆるいシルエット。" width="900" height="1200" loading="lazy" decoding="async"></picture>
+          <div class="look__meta"><em>LOOK 01</em><h3>メルトンのバルカラーコート</h3><p>ウール 84% / ナイロン 16%　尾州（愛知・一宮）</p><p class="look__price">¥96,800　<span>内側 洗朱</span></p></div>
+        </article>
+        <article class="look">
+          <picture><source srcset="assets/look-02.webp" type="image/webp"><img src="assets/look-02.jpg" alt="コットンギャバのトレンチコートを着て、煉瓦の建物の前を歩く女性。ベルトを締めた腰の位置が見える。" width="900" height="1200" loading="lazy" decoding="async"></picture>
+          <div class="look__meta"><em>LOOK 02</em><h3>コットンギャバのトレンチ</h3><p>コットン 100%　播州（兵庫・西脇）</p><p class="look__price">¥78,000　<span>内側 洗朱</span></p></div>
+        </article>
+        <article class="look">
+          <picture><source srcset="assets/look-03.webp" type="image/webp"><img src="assets/look-03.jpg" alt="チェスターコートを着て煉瓦壁にもたれる男性。ダブルの前立てとラペルの返りが見える。" width="900" height="1200" loading="lazy" decoding="async"></picture>
+          <div class="look__meta"><em>LOOK 03</em><h3>カシミヤ混のチェスター</h3><p>ウール 70% / カシミヤ 30%　尾州（愛知・一宮）</p><p class="look__price">¥132,000　<span>内側 洗朱</span></p></div>
+        </article>
+        <article class="look">
+          <picture><source srcset="assets/look-04.webp" type="image/webp"><img src="assets/look-04.jpg" alt="ロングコートを羽織り壁にもたれる人物。" width="900" height="1200" loading="lazy" decoding="async"></picture>
+          <div class="look__meta"><em>LOOK 04</em><h3>ウールギャバのロングコート</h3><p>ウール 100%　尾州（愛知・一宮）</p><p class="look__price">¥88,000　<span>内側 洗朱</span></p></div>
+        </article>
+        <article class="look look--end">
+          <div class="look__end">
+            <p>AUTUMN WINTER 2026 は<br>全 14 型です。</p>
+            <a class="btn" href="#contact">在庫と入荷を問い合わせる<i aria-hidden="true"></i></a>
+          </div>
+        </article>
+      </div>
+      <p class="coll__hint" aria-hidden="true">SCROLL</p>
+    </div>
+  </section>
+
+  <!-- FABRIC -->
+  <section class="fab" id="fabric">
+    <p class="mark"><em>03</em> FABRIC <span>生地のこと</span></p>
+    <div class="fab__lead">
+      <h2 data-stagger><span>いい生地は、</span><span>黙っている。</span></h2>
+      <p data-reveal>尾州と播州、二つの産地としか取引していません。理由は単純で、行って話せる距離だからです。年に四回、工場に行って、織り上がりを手で確かめてから発注しています。</p>
+    </div>
+    <figure class="fab__big" data-reveal>
+      <picture><source srcset="assets/fabric-linen.webp" type="image/webp"><img src="assets/fabric-linen.jpg" alt="平織りの生地の拡大。経糸と緯糸の交差が見える。" width="1300" height="867" loading="lazy" decoding="async"></picture>
+      <figcaption>播州織の平織り。番手を落として、あえて目を粗くしています。</figcaption>
+    </figure>
+    <div class="fab__pair">
+      <figure data-reveal>
+        <picture><source srcset="assets/fabric-rib.webp" type="image/webp"><img src="assets/fabric-rib.jpg" alt="畦編みのニット生地の拡大。畝が縦に走る。" width="1300" height="867" loading="lazy" decoding="async"></picture>
+        <figcaption>畦編み。畝の深さで、同じ糸でも重さが変わります。</figcaption>
+      </figure>
+      <figure data-reveal>
+        <picture><source srcset="assets/atelier-01.webp" type="image/webp"><img src="assets/atelier-01.jpg" alt="白い布を針と糸で手縫いする手元。" width="1300" height="867" loading="lazy" decoding="async"></picture>
+        <figcaption>裏地の返し縫いだけは、今も手でやっています。</figcaption>
+      </figure>
+    </div>
+    <dl class="fab__spec" data-reveal>
+      <div><dt>産地</dt><dd>尾州（愛知・一宮）／ 播州（兵庫・西脇）</dd></div>
+      <div><dt>縫製</dt><dd>東京・蔵前の自社アトリエ、および岩手の協力工場 1 社</dd></div>
+      <div><dt>差し色</dt><dd>洗朱 #C9442B ／ 見返し・袖見返し・裾ステッチのみ</dd></div>
+      <div><dt>修理</dt><dd>購入後 5 年間、袖口と裾は実費のみで受け付けます</dd></div>
+    </dl>
+  </section>
+
+  <!-- GREETINGS -->
+  <section class="greet" id="greetings">
+    <p class="mark"><em>04</em> GREETINGS <span>代表より</span></p>
+    <div class="greet__grid">
+      <figure class="greet__ph" data-reveal>
+        <picture><source srcset="assets/founder.webp" type="image/webp"><img src="assets/founder.jpg" alt="黒の長袖を着て白い壁の前に立つ、KASANE 代表の芦田智。" width="1000" height="1250" loading="lazy" decoding="async"></picture>
+        <figcaption>芦田 智　あしだ さとし ／ KASANE 代表</figcaption>
+      </figure>
+      <div class="greet__txt">
+        <p data-reveal>どうも、芦田です。</p>
+        <p data-reveal>前職はアパレルの生産管理で、十年やりました。工場に行っては「この色、もう少し落とせませんか」と言い続けて、だいたい嫌がられていました。</p>
+        <p data-reveal>2016年に蔵前ではじめたときは、二人でした。ミシンが一台と、裁ち台が一台。いまは七人になって、ミシンは四台に増えました。増えたのは、それくらいです。</p>
+        <p data-reveal>うちの服は、たぶん一見地味です。店頭で手に取っても、ほかと何が違うのかわからないと思う。袖口をめくったときにだけ、洗朱が出てきます。</p>
+        <p data-reveal>その一瞬のために、あとは全部黙らせている。そういう作り方をしています。</p>
+      </div>
+    </div>
+    <figure class="greet__rack" data-reveal>
+      <picture><source srcset="assets/rack.webp" type="image/webp"><img src="assets/rack.jpg" alt="白い壁のフィッティングルーム。パイプのハンガーレールにコートとニットが掛かり、左手に姿見が立つ。" width="1400" height="933" loading="lazy" decoding="async"></picture>
+    </figure>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="cont" id="contact">
+    <p class="mark"><em>05</em> CONTACT <span>お問い合わせ</span></p>
+    <div class="cont__grid">
+      <div class="cont__info">
+        <h2 data-stagger><span>蔵前に、</span><span>店があります。</span></h2>
+        <dl>
+          <div><dt>店舗</dt><dd>KASANE 蔵前<br>〒111-0051 東京都台東区蔵前 2-14-6</dd></div>
+          <div><dt>営業</dt><dd>12:00 – 19:00 ／ 水曜定休</dd></div>
+          <div><dt>連絡</dt><dd><a href="mailto:hello@kasane.example">hello@kasane.example</a><br>03-0000-0000</dd></div>
+        </dl>
+        <p class="cont__note">試着は予約なしで大丈夫です。生地の相談だけでも来てください。</p>
+      </div>
+      <figure class="cont__ph" data-reveal>
+        <picture><source srcset="assets/store.webp" type="image/webp"><img src="assets/store.jpg" alt="コンクリート壁に什器が並ぶ、KASANE 蔵前の店内。" width="1000" height="1250" loading="lazy" decoding="async"></picture>
+      </figure>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <p class="foot__mark">KASANE<span>かさね</span></p>
+  <p class="foot__fic">KASANE は架空のブランドです。本サイトは Web 表現のデモンストレーションとして制作したもので、実在の企業・店舗・商品とは関係がありません。掲載の住所・電話番号・価格・型数・産地はすべて架空です。写真は Unsplash のストックフォトであり、写っている人物は本サイトおよび記載の人物像とは一切関係がありません。</p>
+  <p class="foot__cr">写真：Unsplash（<a href="CREDITS.md">クレジット</a>）／ 背景の布：WebGL2</p>
+</footer>
+
+<script src="script.js" type="module"></script>
+</body>
+</html>
